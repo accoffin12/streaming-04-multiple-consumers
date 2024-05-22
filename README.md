@@ -14,6 +14,8 @@ One process will create task messages. Multiple worker processes will share the 
 
 Notes: Remember to create enviroment and install pika. Always be sure that RabbitMQ is running before attempting the tasks listed. Add notes on creating an enviroment in Anaconda this time.
 
+Added logger, cover paths to retrieve logger.
+
 ## Read
 
 1. Read the [RabbitMQ Tutorial - Work Queues](https://www.rabbitmq.com/tutorials/tutorial-two-python.html)

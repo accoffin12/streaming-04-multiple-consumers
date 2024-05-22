@@ -50,8 +50,7 @@ channel = connection.channel()
 # messages will not be deleted until the consumer acknowledges
 channel.queue_declare(queue="task_queue", durable=True)
 # create a message by joining the command line arguments
-# Added argv and changed "First task..." to "New task..."
-message = " ".join(sys.argv[1, 2, 3:]) or "New task..."
+message = " ".join(sys.argv[1:]) or "New task..."
 # publish the message to the queue
 channel.basic_publish(
     exchange="",

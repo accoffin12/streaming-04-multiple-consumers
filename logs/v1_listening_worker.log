@@ -1,0 +1,10 @@
+2024-05-22 13:14:58,482.v1_listening_worker.INFO ==================================================
+2024-05-22 13:14:58,482.v1_listening_worker.INFO Today is 2024-05-22 at 01:14 PM
+2024-05-22 13:14:58,482.v1_listening_worker.INFO Running on: nt Windows 10
+2024-05-22 13:14:58,482.v1_listening_worker.INFO Python version:  3.12.3
+2024-05-22 13:14:58,483.v1_listening_worker.INFO Python path: C:\Users\Tower\anaconda3\envs\RabbitEnv
+2024-05-22 13:14:58,483.v1_listening_worker.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-04-multiple-consumers
+2024-05-22 13:14:58,484.v1_listening_worker.INFO ==================================================
+2024-05-22 13:14:58,597.v1_listening_worker.INFO  [*] Ready for work. To exit press CTRL+C
+2024-05-22 13:14:58,601.v1_listening_worker.INFO  [x] Received New task...
+2024-05-22 13:15:01,602.v1_listening_worker.INFO  [x] Done
