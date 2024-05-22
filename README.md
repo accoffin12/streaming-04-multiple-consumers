@@ -12,6 +12,8 @@ One process will create task messages. Multiple worker processes will share the 
 1. View / Command Palette - then Python: Select Interpreter
 1. Select your conda environment. 
 
+Notes: Remember to create enviroment and install pika. Always be sure that RabbitMQ is running before attempting the tasks listed. Add notes on creating an enviroment in Anaconda this time.
+
 ## Read
 
 1. Read the [RabbitMQ Tutorial - Work Queues](https://www.rabbitmq.com/tutorials/tutorial-two-python.html)
