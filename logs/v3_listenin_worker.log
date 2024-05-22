@@ -6,3 +6,29 @@
 2024-05-22 16:58:54,311.v3_listenin_worker.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-04-multiple-consumers
 2024-05-22 16:58:54,311.v3_listenin_worker.INFO ==================================================
 2024-05-22 16:58:54,365.v3_listenin_worker.INFO  [*] Ready for work. To exit press CTRL+C
+2024-05-22 16:59:28,415.v3_listenin_worker.INFO  [x] Received Third task.... at 2024-05-22 16:59:28.415310
+2024-05-22 16:59:32,415.v3_listenin_worker.INFO  [x] Done.
+2024-05-22 16:59:32,416.v3_listenin_worker.INFO  [x] Received Sixth task... at 2024-05-22 16:59:32.416937
+2024-05-22 16:59:35,417.v3_listenin_worker.INFO  [x] Done.
+2024-05-22 16:59:35,419.v3_listenin_worker.INFO  [x] Received Don't Panic!! at 2024-05-22 16:59:35.419993
+202024-05-22 16:59:38,408.v3_listenin_worker.INFO  [x] Done.
+2024-05-22 16:59:38,410.v3_listenin_worker.INFO  [x] Received The Hitchhiker's Guide to the Galaxy by Douglas Adams at 2024-05-22 16:59:38.410867
+2024-05-22 16:59:38,411.v3_listenin_worker.INFO  [x] Done.
+2024-05-22 17:08:23,405.v3_listenin_worker.INFO KeyboardInterrupt. Stopping the Program
+2024-05-22 17:08:23,406.v3_listenin_worker.INFO 
+closing connection. Goodby
+
+rker.INFO  [x] Done.
+2024-05-22 17:07:54,449.v3_listenin_worker.INFO KeyboardInterrupt. Stopping the Program
+] Received 42 at 2024-05-22 16:59:36.425144
+2024-05-22 16:59:36,426.v3_listenin_worker.INFO  [x] Done.
+2024-05-22 16:59:36,429.v3_listenin_worker.INFO  [x] Received Space is big. at 2024-05-22 16:59:36.429135
+2024-05-22 16:59:37,430.v3_listenin_worker.INFO  [x] Done.
+2024-05-22 16:59:37,432.v3_listenin_worker.INFO  [x] Received You may think it's a long way down the road to the chemists's- at 2024-05-22 16:59:37.432725
+2024-05-22 16:59:37,433.v3_listenin_worker.INFO  [x] Done.
+2024-05-22 16:59:37,435.v3_listenin_worker.INFO  [x] Received but that's just peanuts to space. at 2024-05-22 16:59:37.435717
+2024-05-22 16:59:38,437.v3_listenin_worker.INFO  [x] Done.
+2024-05-22 17:08:12,559.v3_listenin_worker.INFO KeyboardInterrupt. Stopping the Program
+2024-05-22 17:08:12,560.v3_listenin_worker.INFO 
+closing connection. Goodby
+
