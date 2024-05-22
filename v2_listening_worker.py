@@ -1,5 +1,6 @@
 """
-Works well, recieved message 2 - AC    
+Works well, recieved message 2 - AC  
+Added logger.  
 
     This program listens for work messages contiously. 
     Start multiple versions to add more workers.  
@@ -12,6 +13,14 @@ Works well, recieved message 2 - AC
 import pika
 import sys
 import time
+from utils.util_logger import setup_logger
+
+# Configuring the Logger:
+logger, logname = setup_logger(__file__)
+
+
+# Define Program functions
+#--------------------------------------------------------------------------
 
 # define a callback function to be called when a message is received
 def callback(ch, method, properties, body):
@@ -22,6 +31,7 @@ def callback(ch, method, properties, body):
     time.sleep(body.count(b"."))
     # when done with task, tell the user
     print(" [x] Done.")
+    logger.info(" [x] Done.")
     # acknowledge the message was received and processed 
     # (now it can be deleted from the queue)
     ch.basic_ack(delivery_tag=method.delivery_tag)
@@ -44,6 +54,7 @@ def main(hn: str = "localhost", qn: str = "task_queue"):
         print(f"Verify the server is running on host={hn}.")
         print(f"The error says: {e}")
         print()
+        logger.error(f"ERROR: connection to RabbitMQ server failed. The error is {e}.")
         sys.exit(1)
 
     try:
@@ -73,6 +84,7 @@ def main(hn: str = "localhost", qn: str = "task_queue"):
 
         # print a message to the console for the user
         print(" [*] Ready for work. To exit press CTRL+C")
+        logger.info(" [*] Ready for work. To exit press CTRL+C")
 
         # start consuming messages via the communication channel
         channel.start_consuming()
@@ -82,13 +94,16 @@ def main(hn: str = "localhost", qn: str = "task_queue"):
         print()
         print("ERROR: something went wrong.")
         print(f"The error says: {e}")
+        logger.error(f"Error: Something whent wrong. Error: {e}")
         sys.exit(1)
     except KeyboardInterrupt:
         print()
         print(" User interrupted continuous listening process.")
+        logger.info("KeyboardInterrupt. Stopping the Program")
         sys.exit(0)
     finally:
         print("\nClosing connection. Goodbye.\n")
+        logger.info("\nclosing connection. Goodby\n")
         connection.close()
 
 

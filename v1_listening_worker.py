@@ -1,5 +1,8 @@
 """
 Successfully recieved Task 1 - AC
+Added util logger and set it up to produce output.
+
+------
 
 Listens for task messages on the queue.
 This process runs continously. 
@@ -25,6 +28,16 @@ import pika
 import sys
 import os
 import time
+from utils.util_logger import setup_logger
+
+# Configuring the Logger:
+logger, logname = setup_logger(__file__)
+
+
+# Define Program functions
+#--------------------------------------------------------------------------
+
+
 
 
 def listen_for_tasks():
@@ -40,10 +53,12 @@ def listen_for_tasks():
         """ Define behavior on getting a message."""
 
         # decode the binary message body to a string
+        logger.info(f" [x] Received {body.decode()}")
         print(f" [x] Received {body.decode()}")
         # simulate work by sleeping for the number of dots in the message
         time.sleep(body.count(b"."))
         # when done with task, tell the user
+        logger.info(" [x] Done")
         print(" [x] Done")
         # acknowledge the message was received and processed 
         # (now it can be deleted from the queue)
@@ -55,6 +70,7 @@ def listen_for_tasks():
     # messages will not be deleted until the consumer acknowledges    
     ch.queue_declare(queue="task_queue", durable=True)
     print(" [*] Ready for work. To exit press CTRL+C")
+    logger.info(" [*] Ready for work. To exit press CTRL+C")
 
     # The QoS level controls the # of messages 
     # that can be in-flight (unacknowledged by the consumer) 
