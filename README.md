@@ -3,19 +3,26 @@
 > Use RabbitMQ to distribute tasks to multiple workers
 
 # Overview:
-
- The amount of data available to us is staggering, so much so that in many cases when we have a singular question about a smaller set within the data may become construed. Imagine sitting in a food court at lunch time in a busy mall, there are 15 restaurants to get food, we know each customer there will order food (Consumer) and that each shop (Producer) will make thier order. While all of these restaurants are in the food court, we are only interested in those that make a particular dish. So lets say we want to learn how many people purchase food at the food court, we can do that with a single producer and consumer combo - however, this process would be very slow. The reason being that there are 12 different menus to contend with - each of them serving food to customers. The challenge becomes keeping track of all the orders and how much food is produced. 
- 
- When determining how much food is produced we can create several consumers to comb through the data, and process certain restaurants. For example we want to know how much Sushi is being sold, and how many burgers are being made by two different restaurants in the food court. We can do this by tasksing consumers with specific algorythems to retrieve the data. So the customer that orders sushi will get suish, while the customer who ordered a burger gets a burger - our code acts the same. 
- 
  This project explores the use of multiple Consumers with a single Producer as it handled a csv file. Each of the tasks, is layed out within the file and is to be exicuted by multiple "workers" or consumer scripts that are consuming the producer's output. Unlike the example above these are not filtering through the data, but simply working through the streams. This project contains two sample scripts and thrid custom script designed to output to multiple consumers. 
  
  One process will create task messages. Multiple worker processes will share the work. 
 
+  Prior to running this project read [RabbitMQ Tutorial - Work Queues](https://www.rabbitmq.com/tutorials/tutorial-two-python.html) and review the code and comments in this repo.
+
+## Screenshot
+
+See a running example with at least 3 concurrent process windows here:
+![Hitchhiker's Guide to the Galaxy on multiple consumers](Screenshots/v3Run3Listen1EmHitchhiker.PNG)
+
+Each of the Consumers has numbers corresponding to the row number in the attached tasks.csv. 
+Let's see who can identify the book being referenced... I'll give you a hint, What's the answer to life?
+
 # Table of Contents
 1. [File List](File_List)
 2. [Machine Specs & Terminal Information](Machine_Specs_&_Terminal_Information)
-3. [Creating Enviroments & Installs](Creating_Enviroments_&_Installs)
+3. [Prerequisites](Prerequisites)
+4. [Before you Begin](Before_you_Begin)
+5. [Creating Enviroments & Installs](Creating_Enviroments_&_Installs)
     * [Creating VS Code Enviroment](Creating_VS_Code_Enviroment)
     * [Creating Anaconda Enviroment](Creating_Anaconda_Enviroment)
 
@@ -33,17 +40,46 @@
 | v3_emitter_of_tasks.log | logs folder | log |  tasks.csv | mainrepo | CSV |
 | v3_litenin_worker.log | logs folder | log |
 
+# 2. Machine Specs & Terminal Information
+This project was completed using a Windows OS computer with the following specs. These are not required to run this repository. For further details see util_about.txt and aboutenv.txt in the utils_outputs located in the utils folder.
+
+ * Operating System: nt Windows 10
+ * System Architecture: 64bit
+ * Number of CPUs: 12
+ * Machine Type: AMD64
+ * Python Version: 3.11.4
+ * Python Build Date and Compiler: tags/v3.11.4:d2340ef with Jun  7 2023 05:45:37
+ * Python Implementation: CPython
+ * Active pip environment:   None
+ * Active conda environment: None
+ * Terminal Environment:        VS Code
+ * Terminal Type:               cmd.exe
+ * Preferred command:           python
+
+# 3. Prerequisites
+1. Git
+2. Python 3.7+ (3.11+ preferred)
+3. VS Code Editor
+4. VS Code Extension: Python (by Microsoft)
+5. RabbitMQ Server Installed and Running Locally
+6. Anaconda Installed
+
+# 4. Before you Begin
+
+1. Fork this starter repo into your GitHub.
+2. Clone your repo down to your machine.
+3. View / Command Palette - then Python: Select Interpreter
+4. Select your conda environment. 
 
 
-
-# 3. Creating Enviroments & Installs
+# 5. Creating Enviroments & Installs
 Befor beginning this project two enviroments were made, one as a VS Code Enviroment and the other as an Anaconda Enviroment. RabbitMQ requires the Pika Library in order to function, to ensure that the scripts exicute create an enviroment in either VS Code or Anaconda.
 
 VS Code Enviroments allow us to create the virtual enviroment within the workspace as a way to isolate python projects with its own pre-installed packages and interpreter. For light projects this is optimal ias VS Code enviroments will not touch other enviroments or python installations. However, pre-installed packages can be limited, and the enviroments will only stay within the folder that is selected. Meaning that you can't simply call in another enviroment. The second method of creating an Anaconda Enviroment is different as it's designed for a heavier work load and is robust. This particular method cereates an specific reusable enviroment with specific Python versiions and pre-installed packages. However, this method can be heavier due to the additional packages.
 
 While the Anaconda Enviroment is not necessary for this project it was utilized to ensure that the enviroments between VS Code and Anaconda were consistant when running the v1 and v2 emitters in VS Code with the v1 and v2 listening scripts running in Anaconda.
 
-## Creating VS Code Enviroment
+## 5a. Creating VS Code Enviroment
 To create a local Python virtual enviroment to isolate our project's third-party dependencies from other projects. Use the following commands to create an enviroment, when promted in VS Code set the .venv to a workspace folder and select yes. 
 
 ```
@@ -57,7 +93,7 @@ python -m pip install -r requirements.txt
 ```
 For more information on Pika see the [Pika GitHub](https://github.com/pika/pika)
 
-## Creating Anaconda Enviroment
+## 5b. Creating Anaconda Enviroment
 To create an Anaconda enviroment open an Anaconda Prompt, the first thing that will pop up is the base. Then we are going to locate our folder, to do this type the following:
 
 ```
@@ -90,27 +126,14 @@ Be sure to do each of these in order indifidually in order to install pika in th
 
 ![Pika installation into enviroment](Screenshots/AddingPika1.PNG)   
 
-## Before You Begin
 
-1. Fork this starter repo into your GitHub.
-1. Clone your repo down to your machine.
-1. View / Command Palette - then Python: Select Interpreter
-1. Select your conda environment. 
-
-Notes: Remember to create enviroment and install pika. Always be sure that RabbitMQ is running before attempting the tasks listed. Add notes on creating an enviroment in Anaconda this time.
-
-Added logger, cover paths to retrieve logger.
-
-## Read
-
-1. Read the [RabbitMQ Tutorial - Work Queues](https://www.rabbitmq.com/tutorials/tutorial-two-python.html)
-1. Read the code and comments in this repo.
-
-## RabbitMQ Admin 
+# RabbitMQ Admin 
 
 RabbitMQ comes with an admin panel. When you run the task emitter, reply y to open it. 
 
 (Python makes it easy to open a web page - see the code to learn how.)
+
+# Executing the Code
 
 ## Execute the Producer
 
@@ -138,12 +161,13 @@ How are tasks distributed?
 Monitor the windows with at least two workers. 
 Which worker gets which tasks?
 
+# Creating v3 Scripts
+
+# Results
+
 
 ## Reference
 
 - [RabbitMQ Tutorial - Work Queues](https://www.rabbitmq.com/tutorials/tutorial-two-python.html)
 
 
-## Screenshot
-
-See a running example with at least 3 concurrent process windows here:
